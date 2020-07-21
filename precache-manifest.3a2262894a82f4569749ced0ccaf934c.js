@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "48104daebac076ea1c215c684acbba40",
+    "revision": "726e45012ffeccc996b46ad3fe841970",
     "url": "/ziggy-visits-all/index.html"
   },
   {
-    "revision": "fe1c558133d610b2985f",
+    "revision": "ab86e4680c88db68d4d4",
     "url": "/ziggy-visits-all/static/css/main.bb6a6371.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ziggy-visits-all/static/js/2.fa93647a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fe1c558133d610b2985f",
-    "url": "/ziggy-visits-all/static/js/main.e70e84d5.chunk.js"
+    "revision": "ab86e4680c88db68d4d4",
+    "url": "/ziggy-visits-all/static/js/main.9caea2b4.chunk.js"
   },
   {
     "revision": "f69bf9215ed1e764f4fb",
