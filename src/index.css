@@ -3,6 +3,7 @@ html {
 	background-color: #f1f4ff;
 	font-family: 'Montserrat', sans-serif;
 	color: #010036;
+	min-height: 100vh;
 }
 
 .btn {
@@ -26,4 +27,14 @@ html {
 	text-decoration: none;
 	background-color: #fed633;
 	border-color: #010036;
+}
+
+.btn:hover:not(:disabled) {
+	background-color: #010036;
+	color: #fff;
+}
+
+.btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
 }

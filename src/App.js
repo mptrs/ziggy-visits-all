@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import logo from './img/rampageslayer2000.jpeg';
 
 class App extends React.Component {
 	constructor() {
@@ -14,12 +15,12 @@ class App extends React.Component {
 
 	componentDidMount() {
 		const storedFile = JSON.parse(localStorage.getItem(this.FILE_KEY));
-		if (!storedFile || !storedFile.websites) return;
+		if (!storedFile || !storedFile.websites) return false;
 		this.setState({ websites: storedFile.websites });
 
-		if (localStorage.getItem('counter')) {
-			this.setState({ counter: localStorage.getItem(this.COUNTER) });
-		}
+		const storedCounter = localStorage.getItem('counter');
+		if (!storedCounter || !Number(storedCounter)) return false;
+		this.setState({ counter: Number(localStorage.getItem(this.COUNTER)) });
 	}
 
 	previous = () => {
@@ -34,6 +35,7 @@ class App extends React.Component {
 	};
 
 	next = () => {
+		console.log(this.state.counter + 1, this.state.websites.length);
 		if (this.state.counter + 1 < this.state.websites.length) {
 			this.setState(
 				(prevState, props) => ({
@@ -74,26 +76,46 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				{websites.length === 0 ? (
-					<input type="file" onChange={this.handleUpload} />
+					<main>
+						<h1>Stay ahead of the competion!</h1>
+						<img src={logo} width="648" height="455" alt="" />
+						<label className="btn">
+							Upload je bestand
+							<input
+								id="input"
+								name="input"
+								type="file"
+								onChange={this.handleUpload}
+							/>
+						</label>
+					</main>
 				) : (
-					<>
+					<main>
 						<iframe
 							title="wbsite-frame"
 							src={currentSite}
 							id="websiteFrame"
 						></iframe>
 						<div className="actions">
-							<button className="btn" onClick={this.previous}>
+							<button
+								className="btn"
+								disabled={counter === 0}
+								onClick={this.previous}
+							>
 								Vorige
 							</button>
 							<a href={currentSite} target="_blank" rel="noopener noreferrer">
 								<h3>Bezoek {currentSite}</h3>
 							</a>
-							<button className="btn" onClick={this.next}>
+							<button
+								className="btn"
+								disabled={counter + 1 === websites.length}
+								onClick={this.next}
+							>
 								Volgende
 							</button>
 						</div>
-					</>
+					</main>
 				)}
 			</div>
 		);
