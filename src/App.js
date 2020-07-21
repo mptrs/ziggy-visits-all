@@ -1,26 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import websites from './websites';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			counter: 0,
+		};
+	}
+
+	previous = () => {
+		if (this.state.counter > 0) {
+			this.setState((prevState, props) => ({
+				counter: prevState.counter - 1,
+			}));
+		}
+	};
+
+	next = () => {
+		if (this.state.counter + 1 < websites.length) {
+			this.setState((prevState, props) => ({
+				counter: prevState.counter + 1,
+			}));
+		}
+	};
+
+	render() {
+		const currentSite = websites[this.state.counter];
+		return (
+			<div className="App">
+				<iframe
+					title="wbsite-frame"
+					src={currentSite}
+					id="websiteFrame"
+				></iframe>
+				<div class="actions">
+					<button class="btn" onClick={this.previous}>
+						Vorige
+					</button>
+					<a href={currentSite} target="_blank" rel="noopener noreferrer">
+						<h3>Bezoek {currentSite}</h3>
+					</a>
+					<button class="btn" onClick={this.next}>
+						Volgende
+					</button>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
