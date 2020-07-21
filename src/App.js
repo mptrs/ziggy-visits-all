@@ -77,7 +77,7 @@ class App extends React.Component {
 			<div className="App">
 				{websites.length === 0 ? (
 					<main>
-						<h1>Stay ahead of the competion!</h1>
+						<h1>Stay ahead of the competition!</h1>
 						<img src={logo} width="648" height="455" alt="" />
 						<label className="btn">
 							Upload je bestand
