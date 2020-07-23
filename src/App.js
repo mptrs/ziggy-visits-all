@@ -119,6 +119,7 @@ class App extends React.Component {
             <div className="actions">
               <button
                 {...ArrowKeysReact.events}
+                autoFocus
                 className="btn"
                 disabled={counter === 0}
                 onClick={this.previous}
@@ -127,6 +128,7 @@ class App extends React.Component {
               </button>
               <a
                 {...ArrowKeysReact.events}
+                autoFocus
                 id="link"
                 onClick={this.goToLink.bind(this)}
                 href={currentSite}
@@ -140,6 +142,7 @@ class App extends React.Component {
               </a>
               <button
                 {...ArrowKeysReact.events}
+                autoFocus
                 className="btn"
                 disabled={counter + 1 === websites.length}
                 onClick={this.next}
