@@ -125,27 +125,19 @@ class App extends React.Component {
               >
                 Vorige
               </button>
-              <button
+              <a
                 {...ArrowKeysReact.events}
-                id="btn"
-                type="button"
+                id="link"
                 onClick={this.goToLink.bind(this)}
+                href={currentSite}
                 ref={(ref) => {
-                  this.bt = ref;
+                  this.link = ref;
                 }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a
-                  id="link"
-                  href={currentSite}
-                  ref={(ref) => {
-                    this.link = ref;
-                  }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h3>Bezoek {currentSite}</h3>
-                </a>
-              </button>
+                <h3>Bezoek {currentSite}</h3>
+              </a>
               <button
                 {...ArrowKeysReact.events}
                 className="btn"
